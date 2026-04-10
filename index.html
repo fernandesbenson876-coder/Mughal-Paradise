@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>MUGHALS PARADISE - Authentic Mughlai & North Indian Cuisine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fef8f0;
+            color: #2c1810;
+            line-height: 1.5;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a0f0a 0%, #3d2a1f 100%);
+            color: #ffd89a;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            color: #ffc267;
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .stars {
+            color: #ffb800;
+            letter-spacing: 2px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            color: #b85c1a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-left: 4px solid #e67e22;
+            padding-left: 0.75rem;
+        }
+
+        .card p, .card li {
+            margin-bottom: 0.5rem;
+            color: #3e2a21;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .open-status {
+            background: #2e7d32;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        .contact-info a {
+            color: #b85c1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+            box-shadow: 0 2px 8px rgba(230,126,34,0.3);
+        }
+
+        .btn-primary:hover {
+            background: #d35400;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e67e22;
+            color: #e67e22;
+        }
+
+        .btn-outline:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* Reviews Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            color: #3d2a1f;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #ffe0b5;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #b85c1a;
+        }
+
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+
+        .review-date {
+            font-size: 0.75rem;
+            color: #999;
+            margin-left: auto;
+        }
+
+        .review-text {
+            color: #3e2a21;
+            line-height: 1.5;
+        }
+
+        /* Owner Message */
+        .owner-message {
+            background: linear-gradient(135deg, #fff5e8 0%, #ffe8d4 100%);
+            border-left: 5px solid #e67e22;
+            padding: 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .owner-message h4 {
+            color: #b85c1a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .owner-message p {
+            margin-bottom: 0.75rem;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .features span {
+            background: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e67e22;
+        }
+
+        /* Map Placeholder */
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-placeholder {
+            background: #e9e0d5;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #7a5a4a;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a0f0a;
+            color: #ffd89a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>MUGHALS PARADISE</h1>
+        <div class="subtitle">مغلوں کا جنت · Authentic Mughlai & North Indian Cuisine</div>
+        <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span>5.0 (5+ reviews)</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <span class="open-status">● Open Now · Closes 11:30 PM (Sat)</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="tel:08879111016" class="btn btn-primary">📞 Call Now</a>
+            <a href="#" class="btn btn-primary" style="background:#25D366;">💬 WhatsApp</a>
+            <a href="#" class="btn btn-outline">📍 Get Directions</a>
+            <a href="#" class="btn btn-outline">🍽️ Order Online</a>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="info-grid">
+            <div class="card">
+                <h3>📍 Address</h3>
+                <p>GALA NUMBER 19, VHITTAL SHETTY COMPOUND,<br>
+                MILIRTY ROAD, Marol Maroshi Rd,<br>
+                Marol, Mumbai, Maharashtra 400059</p>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem; color:#e67e22;">⭐ Popular times: 8 PM · Usually a little busy</p>
+            </div>
+
+            <div class="card">
+                <h3>🕒 Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><span>Monday - Friday</span><span>11:00 AM – 11:30 PM</span></li>
+                    <li><span>Saturday</span><span>11:00 AM – 11:30 PM</span></li>
+                    <li><span>Sunday</span><span>11:00 AM – 11:30 PM</span></li>
+                    <li><span>Takeout Available</span><span>Until 12:30 AM</span></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🍛 Cuisine & Specialties</h3>
+                <p>✔ North Indian · Mughlai · Chinese<br>
+                ✔ Butter Chicken · Biryani · Healthy Meals<br>
+                ✔ Fresh Ingredients · Hygienic Kitchen<br>
+                ✔ Fast Delivery · Packed with Flavor</p>
+            </div>
+        </div>
+
+        <!-- Owner's Message -->
+        <div class="owner-message">
+            <h4>✨ From the Owner ✨</h4>
+            <p>"Welcome to <strong>MUGHALS PARADISE</strong> – a cloud kitchen dedicated to serving fresh, flavorful, and hygienically prepared meals, straight from our kitchen to your doorstep.</p>
+            <p>We specialize in North Indian, Chinese, and Healthy Meals, made with high-quality ingredients and crafted with love by experienced chefs. Whether you're craving a quick bite or a full meal, we've got something delicious for every appetite."</p>
+            <div class="features">
+                <span>✅ Fresh Ingredients</span>
+                <span>✅ Hygienic Kitchen</span>
+                <span>✅ Fast Delivery</span>
+                <span>✅ Packed with Flavor</span>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <h2 class="section-title">⭐ What Our Customers Say ⭐</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Arslan</div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-date">11 months ago</div>
+                </div>
+                <div class="review-text">
+                    "I've ordered from MUGHALS PARADISE a few times now, and they never disappoint! The food always arrives hot, fresh, and neatly packed. Highly recommended for authentic flavors!"
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Salik Aziz</div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-date">11 months ago</div>
+                </div>
+                <div class="review-text">
+                    "Last night I ordered Butter Chicken from them and the experience was exquisite, specially the gravy had a great mixture of sweetness and spice. Will order again!"
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Priya Sharma</div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-date">3 months ago</div>
+                </div>
+                <div class="review-text">
+                    "One of the best Mughlai spots in Marol! The biryani is aromatic and the chicken tikka is juicy. Great hygiene and quick delivery too."
+                </div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <h2 class="section-title">📍 Find Us</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <p style="font-weight:bold; margin-bottom:0.5rem;">📍 GALA NUMBER 19, Marol, Mumbai</p>
+                <p style="font-size:0.85rem;">Click "Get Directions" above for Google Maps</p>
+                <p style="font-size:0.7rem; margin-top:0.5rem;">Near VHITTAL SHETTY COMPOUND, Military Road</p>
+            </div>
+        </div>
+
+        <!-- Contact Info Card -->
+        <div class="card" style="text-align: center; margin-top: 1rem;">
+            <h3>📞 Contact Information</h3>
+            <p style="font-size: 1.2rem; margin: 0.5rem 0;"><strong>088791 11016</strong></p>
+            <p>📧 Available on WhatsApp for orders & inquiries</p>
+            <div class="action-buttons" style="justify-content: center; margin-top: 1rem;">
+                <a href="tel:08879111016" class="btn btn-primary">Call</a>
+                <a href="#" class="btn btn-primary" style="background:#25D366;">WhatsApp</a>
+                <a href="#" class="btn btn-outline">Ask a Question</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>MUGHALS PARADISE – Authentic North Indian, Mughlai & Chinese Cuisine</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">Cloud Kitchen | Fresh & Hygienic | Fast Delivery in Marol, Mumbai</p>
+        <p style="margin-top: 1rem;">© 2026 MUGHALS PARADISE | Demo Website</p>
+    </footer>
+</body>
+                                      </html>
